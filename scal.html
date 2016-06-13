@@ -37,9 +37,8 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="RATIO">Tỉ giá</label>
-              <input type="text" class="form-control" id="RATIO" value="22,300" maxlength="12">
-              <p class="help-block">1USD = ... VNĐ</p>
+              <label for="mtg">Tỉ giá</label>
+              <input type="text" class="form-control" id="mtg" value="22,300" maxlength="12">
             </div>
           </div>
         </div>
@@ -47,29 +46,55 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="MIN_SALARY">Lương tối thiểu</label>
-              <input type="text" class="form-control" id="MIN_SALARY" value="1,150,000" maxlength="12">
+              <label for="mMinSalary">Lương tối thiểu</label>
+              <input type="text" class="form-control" id="mMinSalary" value="1,150,000" maxlength="12">
               <p class="help-block">VNĐ</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="social">Xã hội</label>
-              <input type="text" class="form-control" id="social" value="8.0" maxlength="5">
+              <label for="pxh_">Xã hội</label>
+              <input type="text" class="form-control" id="pxh_" value="8.0" maxlength="5">
               <p class="help-block">%</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="health">Y tế</label>
-              <input type="text" class="form-control" id="health" value="1.5" maxlength="5">
+              <label for="pyt_">Y tế</label>
+              <input type="text" class="form-control" id="pyt_" value="1.5" maxlength="5">
               <p class="help-block">%</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="unem">Thất nghiệp</label>
-              <input type="text" class="form-control" id="unem" value="1.0" maxlength="5">
+              <label for="ptn_">Thất nghiệp</label>
+              <input type="text" class="form-control" id="ptn_" value="1.0" maxlength="5">
+              <p class="help-block">%</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <strong>Người sử dụng lao động đóng</strong>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="pxh">Xã hội</label>
+              <input type="text" class="form-control" id="pxh" value="18.0" maxlength="5">
+              <p class="help-block">%</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="pyt">Y tế</label>
+              <input type="text" class="form-control" id="pyt" value="3.0" maxlength="5">
+              <p class="help-block">%</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="ptn">Thất nghiệp</label>
+              <input type="text" class="form-control" id="ptn" value="1.0" maxlength="5">
               <p class="help-block">%</p>
             </div>
           </div>
@@ -78,22 +103,22 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="PERSONAL_REDUCE">Cá nhân</label>
-              <input type="text" class="form-control" id="PERSONAL_REDUCE" value="9,000,000" maxlength="12">
+              <label for="mgtbt">Cá nhân</label>
+              <input type="text" class="form-control" id="mgtbt" value="9,000,000" maxlength="12">
               <p class="help-block">VNĐ</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="DEPENDANT_REDUCE">Phụ thuộc</label>
-              <input type="text" class="form-control" id="DEPENDANT_REDUCE" value="3,600,000" maxlength="12">
+              <label for="mpt">Phụ thuộc</label>
+              <input type="text" class="form-control" id="mpt" value="3,600,000" maxlength="12">
               <p class="help-block">VNĐ</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="depNum">Số người phụ thuộc</label>
-              <input type="text" class="form-control" id="depNum" value="0" maxlength="2">
+              <label for="ipt">Số người phụ thuộc</label>
+              <input type="text" class="form-control" id="ipt" value="0" maxlength="2">
             </div>
           </div>
         </div>
@@ -107,317 +132,85 @@
   </div>
 </form>
 <script id="tpl" type="text/template">
-  <h3>Diễn giải chi tiết (VND)</h3>
+  <h4>Diễn giải chi tiết</h4>
   <table class="table table-hover">
-    <tbody>
-      <tr>
-        <th class="text-right">Lương GROSS</th>
-        <th class="text-right">{{_.grossSalary|number_format}}</th>
-      </tr>
-      <tr>
-        <td class="text-right">Bảo hiểm xã hội ({{_.SOCIAL}}%)</td>
-        <td class="text-right">- {{_.socialInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Bảo hiểm y tế ({{_.HEALTH}}%)</td>
-        <td class="text-right">- {{_.healthInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Bảo hiểm thất nghiệp ({{_.UNEMPLOY}}%)</td>
-        <td class="text-right">- {{_.unemployInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <th class="text-right">Thu nhập trước thuế</th>
-        <th class="text-right">- {{_.noTaxSalary|number_format}}</th>
-      </tr>
-      <tr>
-        <td class="text-right">Giảm trừ gia cảnh bản thân</td>
-        <td class="text-right">- {{_.PERSONAL_REDUCE|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Giảm trừ gia cảnh người phụ thuộc</td>
-        <td class="text-right">- {{_.dependantReduce|number_format}}</td>
-      </tr>
-      <tr>
-        <th class="text-right">Thu nhập chịu thuế</th>
-        <th class="text-right">- {{_.taxSalary|number_format}}</th>
-      </tr>
-      <tr>
-        <th class="text-right">Thuế thu nhập cá nhân (*)</th>
-        <th class="text-right">- {{_.totalTax|number_format}}</th>
-      </tr>
-      <tr>
-        <td class="text-right"><strong>Lương NET</strong><br><small>(Thu nhập trước thuế - Thuế thu nhập cá nhân)</small></td>
-        <th class="text-right">{{_.netSalary|number_format}}</th>
-      </tr>
-    </tbody>
+    <tr>
+      <td class="text-right">Lương GROSS <abbr title="Lương Gross là lương trước khi trừ thuế thu nhập cá nhân và các loại bảo hiểm"><span class="glyphicon glyphicon-info-sign"></span></abbr></td>
+      <td class="text-right">{{_.mgross|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm xã hội ({{_.pxh_}}%)</td>
+      <td class="text-right">{{_.mxh_|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm y tế ({{_.pyt_}}%)</td>
+      <td class="text-right">{{_.myt_|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm thất nghiệp ({{_.ptn_}}%)</td>
+      <td class="text-right">{{_.mtn_|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Thu nhập trước thuế</td>
+      <td class="text-right">{{_.mbt|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Giảm trừ gia cảnh bản thân</td>
+      <td class="text-right">{{_.mgtbt|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Giảm trừ người phụ thuộc</td>
+      <td class="text-right">{{_.mptS|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Thu nhập chịu thuế</td>
+      <td class="text-right">{{_.mct|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Thuế thu nhập cá nhân (*)</td>
+      <td class="text-right">{{_.mpit|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Lương NET <abbr title="Lương NET là lương người lao động thực lãnh (lương GROSS trừ đi thuế thu nhập cá nhân và các loại bảo hiểm)"><span class="glyphicon glyphicon-info-sign"></span></abbr></td>
+      <td class="text-right">{{_.mnet|number_format}}</td>
+    </tr>
   </table>
-  <h3>Chi tiết thuế thu nhập cá nhân (VND)</h3>
+  <h4>(*) Chi tiết thu nhập cá nhân (VND)</h4>
   <table class="table table-hover">
-    <thead>
-      <tr>
-        <th class="text-right">Mức chịu thuế</th>
-        <th class="text-right">Thuế suất</th>
-        <th class="text-right">Tiền nộp</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="text-right">Đến 5 triệu VND</td>
-        <td class="text-right">5%</td>
-        <td class="text-right">{{_.tax1|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 5 triệu VND đến 10 triệu VND</td>
-        <td class="text-right">10%</td>
-        <td class="text-right">{{_.tax2|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 10 triệu VND đến 18 triệu VND</td>
-        <td class="text-right">15%</td>
-        <td class="text-right">{{_.tax3|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 18 triệu VND đến 32 triệu VND</td>
-        <td class="text-right">20%</td>
-        <td class="text-right">{{_.tax4|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 32 triệu VND đến 52 triệu VND</td>
-        <td class="text-right">25%</td>
-        <td class="text-right">{{_.tax5|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 52 triệu VND đến 80 triệu VND</td>
-        <td class="text-right">30%</td>
-        <td class="text-right">{{_.tax6|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right">Trên 80 triệu VND</td>
-        <td class="text-right">35%</td>
-        <td class="text-right">{{_.tax7|number_format}}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th class="text-right">Tổng thuế</th>
-        <th class="text-right" colspan="2">{{_.totalTax|number_format}}</th>
-      </tr>
-    </tfoot>
+    {{_.PersonalIncomeTaxLevels}}
+    <tr>
+      <td class="text-right">{{title}}</td>
+      <td class="text-right">{{percentage}}%</td>
+      <td class="text-right">{{value|number_format}}</td>
+    </tr>
+    {{/_.PersonalIncomeTaxLevels}}
   </table>
-  <h3>Người lao động trả (VND)</h3>
+  <h4>Người sử dụng lao động đóng (VND)</h4>
   <table class="table table-hover">
-    <tbody>
-      <tr>
-        <th class="text-right" class="text-right">Lương GROSS</th>
-        <th class="text-right">{{_.grossSalary|number_format}}</th>
-      </tr>
-      <tr>
-        <td class="text-right" class="text-right">Bảo hiểm xã hội({{_.EMPLOYER_SOCIAL}}%)</td>
-        <td class="text-right">{{_.employerSocialInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right" class="text-right">Bảo hiểm y tế({{_.EMPLOYER_HEALTH}}%)</td>
-        <td class="text-right">{{_.employerHealthInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <td class="text-right" class="text-right">Bảo hiểm thất nghiệp({{_.EMPLOYER_UNEMPLOY}}%)</td>
-        <td class="text-right">{{_.employerUnemployInsurance|number_format}}</td>
-      </tr>
-      <tr>
-        <th class="text-right" class="text-right">Tổng cộng</th>
-        <th class="text-right">{{_.employerTotal|number_format}}</th>
-      </tr>
-    </tbody>
+    <tr>
+      <td class="text-right">Lương GROSS</td>
+      <td class="text-right">{{_.mgross|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm xã hội ({{_.pxh}}%)</td>
+      <td class="text-right">{{_.mxh|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm y tế ({{_.pyt}}%)</td>
+      <td class="text-right">{{_.myt|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Bảo hiểm thất nghiệp ({{_.ptn}}%)</td>
+      <td class="text-right">{{_.mtn|number_format}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">Tổng cộng</td>
+      <td class="text-right">{{_.msum|number_format}}</td>
+    </tr>
   </table>
 </script>
 <script type="text/javascript">
-  /*
-    Markup.js v1.5.21: http://github.com/adammark/Markup.js
-  */
-  var Mark={includes:{},globals:{},delimiter:">",compact:false,_copy:function(d,c){c=c||[];for(var e in d){c[e]=d[e]}return c},_size:function(b){return b instanceof Array?b.length:(b||0)},_iter:function(a,b){this.idx=a;this.size=b;this.length=b;this.sign="#";this.toString=function(){return this.idx+this.sign.length-1}},_pipe:function(h,c){var g,f,b,a;if((g=c.shift())){f=g.split(this.delimiter);b=f.shift().trim();try{a=Mark.pipes[b].apply(null,[h].concat(f));h=this._pipe(a,c)}catch(d){}}return h},_eval:function(e,g,h){var a=this._pipe(e,g),b=a,d=-1,c,f;if(a instanceof Array){a="";c=b.length;while(++d<c){f={iter:new this._iter(d,c)};a+=h?Mark.up(h,b[d],f):b[d]}}else{if(a instanceof Object){a=Mark.up(h,b)}}return a},_test:function(a,e,c,b){var d=Mark.up(e,c,b).split(/\{\{\s*else\s*\}\}/);return(a===false?d[1]:d[0])||""},_bridge:function(h,e){e=e=="."?"\\.":e.replace(/\$/g,"\\$");var f="{{\\s*"+e+"([^/}]+\\w*)?}}|{{/"+e+"\\s*}}",n=new RegExp(f,"g"),p=h.match(n)||[],o,g,m=0,l=0,k=-1,j=0;for(g=0;g<p.length;g++){o=g;k=h.indexOf(p[o],k+1);if(p[o].indexOf("{{/")>-1){l++}else{m++}if(m===l){break}}m=h.indexOf(p[0]);l=m+p[0].length;j=k+p[o].length;return[h.substring(m,j),h.substring(l,k)]}};Mark.up=function(s,b,e){b=b||{};e=e||{};var m=/\{\{(.+?)\}\}/g,l=s.match(m)||[],t,d,g,h=[],r,c,f,k,o,a,n,q=0,p=0;if(e.pipes){this._copy(e.pipes,this.pipes)}if(e.includes){this._copy(e.includes,this.includes)}if(e.globals){this._copy(e.globals,this.globals)}if(e.delimiter){this.delimiter=e.delimiter}if(e.compact!==undefined){this.compact=e.compact}while((t=l[q++])){k=undefined;f="";r=t.indexOf("/}}")>-1;d=t.substr(2,t.length-(r?5:4));d=d.replace(/`(.+?)`/g,function(i,j){return Mark.up("{{"+j+"}}",b)});c=d.trim().indexOf("if ")===0;h=d.split("|");h.shift();d=d.replace(/^\s*if/,"").split("|").shift().trim();g=c?"if":d.split("|")[0];n=b[d];if(c&&!h.length){h=["notempty"]}if(!r&&s.indexOf("{{/"+g)>-1){k=this._bridge(s,g);t=k[0];f=k[1];q+=t.match(m).length-1}if(/^\{\{\s*else\s*\}\}$/.test(t)){continue}else{if((o=this.globals[d])!==undefined){k=this._eval(o,h,f)}else{if((a=this.includes[d])){if(a instanceof Function){a=a()}k=this._pipe(Mark.up(a,b,e),h)}else{if(d.indexOf("#")>-1){e.iter.sign=d;k=this._pipe(e.iter,h)}else{if(d==="."){k=this._pipe(b,h)}else{if(d.indexOf(".")>-1){d=d.split(".");n=Mark.globals[d[0]];if(n){p=1}else{p=0;n=b}while(n&&p<d.length){n=n[d[p++]]}k=this._eval(n,h,f)}else{if(c){k=this._pipe(n,h)}else{if(n instanceof Array){k=this._eval(n,h,f)}else{if(f){k=n?Mark.up(f,n):undefined}else{if(b.hasOwnProperty(d)){k=this._pipe(n,h)}}}}}}}}}}if(k instanceof Array){k=this._eval(k,h,f)}if(c){k=this._test(k,f,b,e)}s=s.replace(t,k===undefined?"???":k)}return this.compact?s.replace(/>\s+</g,"><"):s};Mark.pipes={empty:function(a){return !a||(a+"").trim().length===0?a:false},notempty:function(a){return a&&(a+"").trim().length?a:false},blank:function(b,a){return !!b||b===0?b:a},more:function(d,c){return Mark._size(d)>c?d:false},less:function(d,c){return Mark._size(d)<c?d:false},ormore:function(d,c){return Mark._size(d)>=c?d:false},orless:function(d,c){return Mark._size(d)<=c?d:false},between:function(e,d,f){e=Mark._size(e);return e>=d&&e<=f?e:false},equals:function(d,c){return d==c?d:false},notequals:function(d,c){return d!=c?d:false},like:function(b,a){return new RegExp(a,"i").test(b)?b:false},notlike:function(b,a){return !Mark.pipes.like(b,a)?b:false},upcase:function(a){return String(a).toUpperCase()},downcase:function(a){return String(a).toLowerCase()},capcase:function(a){return a.replace(/(?:^|\s)\S/g,function(b){return b.toUpperCase()})},chop:function(a,b){return a.length>b?a.substr(0,b)+"...":a},tease:function(c,d){var b=c.split(/\s+/);return b.slice(0,d).join(" ")+(b.length>d?"...":"")},trim:function(a){return a.trim()},pack:function(a){return a.trim().replace(/\s{2,}/g," ")},round:function(a){return Math.round(+a)},clean:function(a){return String(a).replace(/<\/?[^>]+>/gi,"")},size:function(a){return a.length},length:function(a){return a.length},reverse:function(a){return[].concat(a).reverse()},join:function(a,b){return a.join(b)},limit:function(b,c,a){return b.slice(+a||0,+c+(+a||0))},split:function(b,a){return b.split(a||",")},choose:function(b,c,a){return !!b?c:(a||"")},toggle:function(c,b,a,d){return a.split(",")[b.match(/\w+/g).indexOf(c+"")]||d},sort:function(a,c){var b=function(e,d){return e[c]>d[c]?1:-1};return[].concat(a).sort(c?b:undefined)},fix:function(a,b){return(+a).toFixed(b)},mod:function(a,b){return(+a)%(+b)},divisible:function(a,b){return a&&(+a%b)===0?a:false},even:function(a){return a&&(+a&1)===0?a:false},odd:function(a){return a&&(+a&1)===1?a:false},number:function(a){return parseFloat(a.replace(/[^\-\d\.]/g,""))},url:function(a){return encodeURI(a)},bool:function(a){return !!a},falsy:function(a){return !a},first:function(a){return a.idx===0},last:function(a){return a.idx===a.size-1},call:function(b,a){return b[a].apply(b,[].slice.call(arguments,2))},set:function(b,a){Mark.globals[a]=b;return""},log:function(a){console.log(a);return a}};if(typeof String.prototype.trim!=="function"){String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")}}if(typeof module!=="undefined"&&module.exports){module.exports=Mark}else{if(typeof define==="function"&&define.amd){define(function(){return Mark})}};
-  Mark.pipes.stringify = function (arr) {
-    return JSON.stringify(arr);
-  };
-
-  !function(e){"use strict";function t(e,t){if(this.createTextRange){var a=this.createTextRange();a.collapse(!0),a.moveStart("character",e),a.moveEnd("character",t-e),a.select()}else this.setSelectionRange&&(this.focus(),this.setSelectionRange(e,t))}function a(e){var t=this.value.length;if(e="start"==e.toLowerCase()?"Start":"End",document.selection){var a,i,n,l=document.selection.createRange();return a=l.duplicate(),a.expand("textedit"),a.setEndPoint("EndToEnd",l),i=a.text.length-l.text.length,n=i+l.text.length,"Start"==e?i:n}return"undefined"!=typeof this["selection"+e]&&(t=this["selection"+e]),t}var i={codes:{46:127,188:44,109:45,190:46,191:47,192:96,220:92,222:39,221:93,219:91,173:45,187:61,186:59,189:45,110:46},shifts:{96:"~",49:"!",50:"@",51:"#",52:"$",53:"%",54:"^",55:"&",56:"*",57:"(",48:")",45:"_",61:"+",91:"{",93:"}",92:"|",59:":",39:'"',44:"<",46:">",47:"?"}};e.fn.number=function(n,l,s,r){r="undefined"==typeof r?",":r,s="undefined"==typeof s?".":s,l="undefined"==typeof l?0:l;var u="\\u"+("0000"+s.charCodeAt(0).toString(16)).slice(-4),h=new RegExp("[^"+u+"0-9]","g"),o=new RegExp(u,"g");return n===!0?this.is("input:text")?this.on({"keydown.format":function(n){var u=e(this),h=u.data("numFormat"),o=n.keyCode?n.keyCode:n.which,c="",v=a.apply(this,["start"]),d=a.apply(this,["end"]),p="",f=!1;if(i.codes.hasOwnProperty(o)&&(o=i.codes[o]),!n.shiftKey&&o>=65&&90>=o?o+=32:!n.shiftKey&&o>=69&&105>=o?o-=48:n.shiftKey&&i.shifts.hasOwnProperty(o)&&(c=i.shifts[o]),""==c&&(c=String.fromCharCode(o)),8!=o&&45!=o&&127!=o&&c!=s&&!c.match(/[0-9]/)){var g=n.keyCode?n.keyCode:n.which;if(46==g||8==g||127==g||9==g||27==g||13==g||(65==g||82==g||80==g||83==g||70==g||72==g||66==g||74==g||84==g||90==g||61==g||173==g||48==g)&&(n.ctrlKey||n.metaKey)===!0||(86==g||67==g||88==g)&&(n.ctrlKey||n.metaKey)===!0||g>=35&&39>=g||g>=112&&123>=g)return;return n.preventDefault(),!1}if(0==v&&d==this.value.length?8==o?(v=d=1,this.value="",h.init=l>0?-1:0,h.c=l>0?-(l+1):0,t.apply(this,[0,0])):c==s?(v=d=1,this.value="0"+s+new Array(l+1).join("0"),h.init=l>0?1:0,h.c=l>0?-(l+1):0):45==o?(v=d=2,this.value="-0"+s+new Array(l+1).join("0"),h.init=l>0?1:0,h.c=l>0?-(l+1):0,t.apply(this,[2,2])):(h.init=l>0?-1:0,h.c=l>0?-l:0):h.c=d-this.value.length,h.isPartialSelection=v==d?!1:!0,l>0&&c==s&&v==this.value.length-l-1)h.c++,h.init=Math.max(0,h.init),n.preventDefault(),f=this.value.length+h.c;else if(45!=o||0==v&&0!=this.value.indexOf("-"))if(c==s)h.init=Math.max(0,h.init),n.preventDefault();else if(l>0&&127==o&&v==this.value.length-l-1)n.preventDefault();else if(l>0&&8==o&&v==this.value.length-l)n.preventDefault(),h.c--,f=this.value.length+h.c;else if(l>0&&127==o&&v>this.value.length-l-1){if(""===this.value)return;"0"!=this.value.slice(v,v+1)&&(p=this.value.slice(0,v)+"0"+this.value.slice(v+1),u.val(p)),n.preventDefault(),f=this.value.length+h.c}else if(l>0&&8==o&&v>this.value.length-l){if(""===this.value)return;"0"!=this.value.slice(v-1,v)&&(p=this.value.slice(0,v-1)+"0"+this.value.slice(v),u.val(p)),n.preventDefault(),h.c--,f=this.value.length+h.c}else 127==o&&this.value.slice(v,v+1)==r?n.preventDefault():8==o&&this.value.slice(v-1,v)==r?(n.preventDefault(),h.c--,f=this.value.length+h.c):l>0&&v==d&&this.value.length>l+1&&v>this.value.length-l-1&&isFinite(+c)&&!n.metaKey&&!n.ctrlKey&&!n.altKey&&1===c.length&&(p=d===this.value.length?this.value.slice(0,v-1):this.value.slice(0,v)+this.value.slice(v+1),this.value=p,f=v);else n.preventDefault();f!==!1&&t.apply(this,[f,f]),u.data("numFormat",h)},"keyup.format":function(i){var n,s=e(this),r=s.data("numFormat"),u=i.keyCode?i.keyCode:i.which,h=a.apply(this,["start"]),o=a.apply(this,["end"]);0!==h||0!==o||189!==u&&109!==u||(s.val("-"+s.val()),h=1,r.c=1-this.value.length,r.init=1,s.data("numFormat",r),n=this.value.length+r.c,t.apply(this,[n,n])),""===this.value||(48>u||u>57)&&(96>u||u>105)&&8!==u&&46!==u&&110!==u||(s.val(s.val()),l>0&&(r.init<1?(h=this.value.length-l-(r.init<0?1:0),r.c=h-this.value.length,r.init=1,s.data("numFormat",r)):h>this.value.length-l&&8!=u&&(r.c++,s.data("numFormat",r))),46!=u||r.isPartialSelection||(r.c++,s.data("numFormat",r)),n=this.value.length+r.c,t.apply(this,[n,n]))},"paste.format":function(t){var a=e(this),i=t.originalEvent,n=null;return window.clipboardData&&window.clipboardData.getData?n=window.clipboardData.getData("Text"):i.clipboardData&&i.clipboardData.getData&&(n=i.clipboardData.getData("text/plain")),a.val(n),t.preventDefault(),!1}}).each(function(){var t=e(this).data("numFormat",{c:-(l+1),decimals:l,thousands_sep:r,dec_point:s,regex_dec_num:h,regex_dec:o,init:this.value.indexOf(".")?!0:!1});""!==this.value&&t.val(t.val())}):this.each(function(){var t=e(this),a=+t.text().replace(h,"").replace(o,".");t.number(isFinite(a)?+a:0,l,s,r)}):this.text(e.number.apply(window,arguments))};var n=null,l=null;e.isPlainObject(e.valHooks.text)?(e.isFunction(e.valHooks.text.get)&&(n=e.valHooks.text.get),e.isFunction(e.valHooks.text.set)&&(l=e.valHooks.text.set)):e.valHooks.text={},e.valHooks.text.get=function(t){var a,i=e(t),l=i.data("numFormat");return l?""===t.value?"":(a=+t.value.replace(l.regex_dec_num,"").replace(l.regex_dec,"."),(0===t.value.indexOf("-")?"-":"")+(isFinite(a)?a:0)):e.isFunction(n)?n(t):void 0},e.valHooks.text.set=function(t,a){var i=e(t),n=i.data("numFormat");if(n){var s=e.number(a,n.decimals,n.dec_point,n.thousands_sep);return e.isFunction(l)?l(t,s):t.value=s}return e.isFunction(l)?l(t,a):void 0},e.number=function(e,t,a,i){i="undefined"==typeof i?"1000"!==new Number(1e3).toLocaleString()?new Number(1e3).toLocaleString().charAt(1):"":i,a="undefined"==typeof a?new Number(.1).toLocaleString().charAt(1):a,t=isFinite(+t)?Math.abs(t):0;var n="\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4),l="\\u"+("0000"+i.charCodeAt(0).toString(16)).slice(-4);e=(e+"").replace(".",a).replace(new RegExp(l,"g"),"").replace(new RegExp(n,"g"),".").replace(new RegExp("[^0-9+-Ee.]","g"),"");var s=isFinite(+e)?+e:0,r="",u=function(e,t){return""+ +(Math.round((""+e).indexOf("e")>0?e:e+"e+"+t)+"e-"+t)};return r=(t?u(s,t):""+Math.round(s)).split("."),r[0].length>3&&(r[0]=r[0].replace(/\B(?=(?:\d{3})+(?!\d))/g,i)),(r[1]||"").length<t&&(r[1]=r[1]||"",r[1]+=new Array(t-r[1].length+1).join("0")),r.join(a)}}(jQuery);
-
-  /*
-   *  jquery-maskmoney - v3.0.2
-  */
-  !function($){"use strict";$.browser||($.browser={},$.browser.mozilla=/mozilla/.test(navigator.userAgent.toLowerCase())&&!/webkit/.test(navigator.userAgent.toLowerCase()),$.browser.webkit=/webkit/.test(navigator.userAgent.toLowerCase()),$.browser.opera=/opera/.test(navigator.userAgent.toLowerCase()),$.browser.msie=/msie/.test(navigator.userAgent.toLowerCase()));var a={destroy:function(){return $(this).unbind(".maskMoney"),$.browser.msie&&(this.onpaste=null),this},mask:function(a){return this.each(function(){var b,c=$(this);return"number"==typeof a&&(c.trigger("mask"),b=$(c.val().split(/\D/)).last()[0].length,a=a.toFixed(b),c.val(a)),c.trigger("mask")})},unmasked:function(){return this.map(function(){var a,b=$(this).val()||"0",c=-1!==b.indexOf("-");return $(b.split(/\D/).reverse()).each(function(b,c){return c?(a=c,!1):void 0}),b=b.replace(/\D/g,""),b=b.replace(new RegExp(a+"$"),"."+a),c&&(b="-"+b),parseFloat(b)})},init:function(a){return a=$.extend({prefix:"",suffix:"",affixesStay:!0,thousands:",",decimal:".",precision:2,allowZero:!1,allowNegative:!1},a),this.each(function(){function b(){var a,b,c,d,e,f=s.get(0),g=0,h=0;return"number"==typeof f.selectionStart&&"number"==typeof f.selectionEnd?(g=f.selectionStart,h=f.selectionEnd):(b=document.selection.createRange(),b&&b.parentElement()===f&&(d=f.value.length,a=f.value.replace(/\r\n/g,"\n"),c=f.createTextRange(),c.moveToBookmark(b.getBookmark()),e=f.createTextRange(),e.collapse(!1),c.compareEndPoints("StartToEnd",e)>-1?g=h=d:(g=-c.moveStart("character",-d),g+=a.slice(0,g).split("\n").length-1,c.compareEndPoints("EndToEnd",e)>-1?h=d:(h=-c.moveEnd("character",-d),h+=a.slice(0,h).split("\n").length-1)))),{start:g,end:h}}function c(){var a=!(s.val().length>=s.attr("maxlength")&&s.attr("maxlength")>=0),c=b(),d=c.start,e=c.end,f=c.start!==c.end&&s.val().substring(d,e).match(/\d/)?!0:!1,g="0"===s.val().substring(0,1);return a||f||g}function d(a){s.each(function(b,c){if(c.setSelectionRange)c.focus(),c.setSelectionRange(a,a);else if(c.createTextRange){var d=c.createTextRange();d.collapse(!0),d.moveEnd("character",a),d.moveStart("character",a),d.select()}})}function e(b){var c="";return b.indexOf("-")>-1&&(b=b.replace("-",""),c="-"),c+a.prefix+b+a.suffix}function f(b){var c,d,f,g=b.indexOf("-")>-1&&a.allowNegative?"-":"",h=b.replace(/[^0-9]/g,""),i=h.slice(0,h.length-a.precision);return i=i.replace(/^0*/g,""),i=i.replace(/\B(?=(\d{3})+(?!\d))/g,a.thousands),""===i&&(i="0"),c=g+i,a.precision>0&&(d=h.slice(h.length-a.precision),f=new Array(a.precision+1-d.length).join(0),c+=a.decimal+f+d),e(c)}function g(a){var b,c=s.val().length;s.val(f(s.val())),b=s.val().length,a-=c-b,d(a)}function h(){var a=s.val();s.val(f(a))}function i(){var b=s.val();return a.allowNegative?""!==b&&"-"===b.charAt(0)?b.replace("-",""):"-"+b:b}function j(a){a.preventDefault?a.preventDefault():a.returnValue=!1}function k(a){a=a||window.event;var d,e,f,h,k,l=a.which||a.charCode||a.keyCode;return void 0===l?!1:48>l||l>57?45===l?(s.val(i()),!1):43===l?(s.val(s.val().replace("-","")),!1):13===l||9===l?!0:!$.browser.mozilla||37!==l&&39!==l||0!==a.charCode?(j(a),!0):!0:c()?(j(a),d=String.fromCharCode(l),e=b(),f=e.start,h=e.end,k=s.val(),s.val(k.substring(0,f)+d+k.substring(h,k.length)),g(f+1),!1):!1}function l(c){c=c||window.event;var d,e,f,h,i,k=c.which||c.charCode||c.keyCode;return void 0===k?!1:(d=b(),e=d.start,f=d.end,8===k||46===k||63272===k?(j(c),h=s.val(),e===f&&(8===k?""===a.suffix?e-=1:(i=h.split("").reverse().join("").search(/\d/),e=h.length-i-1,f=e+1):f+=1),s.val(h.substring(0,e)+h.substring(f,h.length)),g(e),!1):9===k?!0:!0)}function m(){r=s.val(),h();var a,b=s.get(0);b.createTextRange&&(a=b.createTextRange(),a.collapse(!1),a.select())}function n(){setTimeout(function(){h()},0)}function o(){var b=parseFloat("0")/Math.pow(10,a.precision);return b.toFixed(a.precision).replace(new RegExp("\\.","g"),a.decimal)}function p(b){if($.browser.msie&&k(b),""===s.val()||s.val()===e(o()))a.allowZero?a.affixesStay?s.val(e(o())):s.val(o()):s.val("");else if(!a.affixesStay){var c=s.val().replace(a.prefix,"").replace(a.suffix,"");s.val(c)}s.val()!==r&&s.change()}function q(){var a,b=s.get(0);b.setSelectionRange?(a=s.val().length,b.setSelectionRange(a,a)):s.val(s.val())}var r,s=$(this);a=$.extend(a,s.data()),s.unbind(".maskMoney"),s.bind("keypress.maskMoney",k),s.bind("keydown.maskMoney",l),s.bind("blur.maskMoney",p),s.bind("focus.maskMoney",m),s.bind("click.maskMoney",q),s.bind("cut.maskMoney",n),s.bind("paste.maskMoney",n),s.bind("mask.maskMoney",h)})}};$.fn.maskMoney=function(b){return a[b]?a[b].apply(this,Array.prototype.slice.call(arguments,1)):"object"!=typeof b&&b?($.error("Method "+b+" does not exist on jQuery.maskMoney"),void 0):a.init.apply(this,arguments)}}(window.jQuery||window.Zepto);
-
-  (function( $ ) {
-    'use strict';
-
-    Mark.pipes.number_format = function (num) {
-      return $.number(num);
-    };
-    Mark.pipes.in_usd = function (num) {
-      return $.number(num);
-    };
-
-    var SHIT = {
-      RATIO: 22000,
-      MIN_SALARY: 1150000,
-      AREA_MIN_SALARY: 3100000,
-      SOCIAL: 8,
-      HEALTH: 1.5,
-      UNEMPLOY: 1,
-      EMPLOYER_SOCIAL: 18,
-      EMPLOYER_HEALTH: 3,
-      EMPLOYER_UNEMPLOY: 1,
-      PERSONAL_REDUCE: 9000000,
-      DEPENDANT_REDUCE: 3600000,
-      vnd: 10000000,
-      usd: 0,
-      dependants: 0,
-      grossSalary: 0,
-      netSalary: 0,
-      socialInsurance: 0,
-      healthInsurance: 0,
-      unemployInsurance: 0,
-      noTaxSalary: 0,
-      dependantReduce: 0,
-      taxSalary: 0,
-      tax1: 0,
-      tax2: 0,
-      tax3: 0,
-      tax4: 0,
-      tax5: 0,
-      tax6: 0,
-      tax7: 0,
-      totalTax: 0,
-      employerSocialInsurance: 0,
-      employerHealthInsurance: 0,
-      employerUnemployInsurance: 0,
-      employerTotal: 0,
-      init: function() {
-        var _this = this;
-
-        _this.vnd = parseInt($('#vnd').val().replace(/,/g, ''));
-        _this.usd = parseFloat($('#usd').val().replace(/,/g, ''));
-        _this.RATIO = parseInt($('#RATIO').val().replace(/,/g, ''));
-        _this.MIN_SALARY = parseInt($('#MIN_SALARY').val().replace(/,/g, ''));
-        _this.SOCIAL = parseFloat($('#social').val().replace(/,/g, ''));
-        _this.HEALTH = parseFloat($('#health').val().replace(/,/g, ''));
-        _this.UNEMPLOY = parseFloat($('#unem').val().replace(/,/g, ''));
-        _this.PERSONAL_REDUCE = parseInt($('#PERSONAL_REDUCE').val().replace(/,/g, ''));
-        _this.DEPENDANT_REDUCE = parseInt($('#DEPENDANT_REDUCE').val().replace(/,/g, ''));
-        _this.dependants = parseInt($('#depNum').val().replace(/,/g, ''));
-
-        $('#vnd, #RATIO, #MIN_SALARY, #PERSONAL_REDUCE, #DEPENDANT_REDUCE, #depNum')
-          .maskMoney({
-            allowZero: true,
-            precision: 0
-          });
-
-        $('#usd, #social, #health, #unem')
-          .maskMoney({
-            allowZero: true,
-            precision: 1
-          });
-
-        $('#usd, #social, #health, #unem')
-          .on('click', function(e) {
-            $(this).select();
-          });
-
-        $('#vnd, #RATIO, #MIN_SALARY, #PERSONAL_REDUCE, #DEPENDANT_REDUCE, #depNum')
-          .on('click', function(e) {
-            $(this).select();
-          });
-
-
-        $('#btn1').on('click', function(e) {
-          _this.grossToNet();
-          _this.render();
-        });
-
-        $('#btn2').on('click', function(e) {
-          _this.netToGross();
-          _this.render();
-        });
-
-      },
-      grossToNet: function() {
-        var _this = this;
-
-        _this.grossSalary       = _this.vnd + (_this.usd * _this.RATIO);
-        _this.socialInsurance   = _this.min(_this.grossSalary, _this.MIN_SALARY * 20) * _this.SOCIAL / 100;
-        _this.healthInsurance   = _this.min(_this.grossSalary, _this.MIN_SALARY * 20) * _this.HEALTH / 100;
-        _this.unemployInsurance = _this.min(_this.grossSalary, _this.AREA_MIN_SALARY * 20) * _this.UNEMPLOY / 100;
-
-        _this.noTaxSalary     = _this.grossSalary - _this.socialInsurance - _this.healthInsurance - _this.unemployInsurance;
-        _this.dependantReduce = _this.DEPENDANT_REDUCE * _this.dependants;
-        _this.taxSalary       = _this.max(0, _this.noTaxSalary - _this.PERSONAL_REDUCE - _this.dependantReduce);
-
-        _this.tax1 = _this.bound(_this.taxSalary, 0, 5000000) * 5 / 100;
-        _this.tax2 = _this.bound(_this.taxSalary, 5000000, 10000000) * 10 / 100;
-        _this.tax3 = _this.bound(_this.taxSalary, 10000000, 18000000) * 15 / 100;
-        _this.tax4 = _this.bound(_this.taxSalary, 18000000, 32000000) * 20 / 100;
-        _this.tax5 = _this.bound(_this.taxSalary, 32000000, 52000000) * 25 / 100;
-        _this.tax6 = _this.bound(_this.taxSalary, 52000000, 80000000) * 30 / 100;
-        _this.tax7 = _this.bound(_this.taxSalary, 80000000, 9999999999) * 35 / 100;
-
-        _this.totalTax  = _this.tax1 + _this.tax2 + _this.tax3 + _this.tax4 + _this.tax5 + _this.tax6 + _this.tax7;
-        _this.netSalary = _this.noTaxSalary - _this.totalTax;
-
-        _this.employerSocialInsurance   = _this.min(_this.grossSalary, _this.MIN_SALARY * 20) * _this.EMPLOYER_SOCIAL / 100;
-        _this.employerHealthInsurance   = _this.min(_this.grossSalary, _this.MIN_SALARY * 20) * _this.EMPLOYER_HEALTH / 100;
-        _this.employerUnemployInsurance = _this.min(_this.grossSalary, _this.AREA_MIN_SALARY * 20) * _this.EMPLOYER_UNEMPLOY / 100;
-        _this.employerTotal             = _this.grossSalary + _this.employerSocialInsurance + _this.employerHealthInsurance + _this.employerUnemployInsurance;
-      },
-      netToGross: function() {
-        var _this = this;
-
-        _this.netSalary   = 0;
-        _this.oldVnd      = _this.vnd;
-        _this.totalSalary = _this.oldVnd + (_this.usd * _this.RATIO);
-
-        while (_this.netSalary < _this.totalSalary) {
-          _this.vnd += 5;
-          _this.grossToNet();
-        };
-        _this.vnd = _this.oldVnd;
-      },
-      render: function() {
-        var _this = this;
-        $(Mark.up( $("#tpl").html(), {
-          _: _this
-        })).appendTo($('#result').html(''));
-      },
-      min: function(first, second) {
-        if (first < second) {
-            return first;
-        }
-        return second;
-      },
-      max: function(first, second) {
-        if (first > second) {
-            return first;
-        }
-        return second;
-      },
-      bound: function(value, minimum, maximum) {
-        if (value >= maximum) {
-            return maximum - minimum;
-        } else if (value <= minimum) {
-            return 0;
-        } else {
-            return value - minimum;
-        }
-      }
-    };
-
-    $(function() {
-      SHIT.init();
-      SHIT.grossToNet();
-      SHIT.render();
-    });
-
-  })(jQuery);
-
-  </script>
+  var Mark={includes:{},globals:{},delimiter:">",compact:!1,_copy:function(e,t){t=t||[];for(var n in e)t[n]=e[n];return t},_size:function(e){return e instanceof Array?e.length:e||0},_iter:function(e,t){this.idx=e,this.size=t,this.length=t,this.sign="#",this.toString=function(){return this.idx+this.sign.length-1}},_pipe:function(e,t){var n,a,r,i;if(n=t.shift()){a=n.split(this.delimiter),r=a.shift().trim();try{i=Mark.pipes[r].apply(null,[e].concat(a)),e=this._pipe(i,t)}catch(l){}}return e},_eval:function(e,t,n){var a,r,i=this._pipe(e,t),l=i,o=-1;if(i instanceof Array)for(i="",a=l.length;++o<a;)r={iter:new this._iter(o,a)},i+=n?Mark.up(n,l[o],r):l[o];else i instanceof Object&&(i=Mark.up(n,l));return i},_test:function(e,t,n,a){var r=Mark.up(t,n,a).split(/\{\{\s*else\s*\}\}/);return(e===!1?r[1]:r[0])||""},_bridge:function(e,t){t="."==t?"\\.":t.replace(/\$/g,"\\$");var n,a,r="{{\\s*"+t+"([^/}]+\\w*)?}}|{{/"+t+"\\s*}}",i=new RegExp(r,"g"),l=e.match(i)||[],o=0,s=0,c=-1,u=0;for(a=0;a<l.length&&(n=a,c=e.indexOf(l[n],c+1),l[n].indexOf("{{/")>-1?s++:o++,o!==s);a++);return o=e.indexOf(l[0]),s=o+l[0].length,u=c+l[n].length,[e.substring(o,u),e.substring(s,c)]}};Mark.up=function(e,t,n){t=t||{},n=n||{};var a,r,i,l,o,s,c,u,p,m,h=/\{\{(.+?)\}\}/g,f=e.match(h)||[],v=[],g=0,d=0;for(n.pipes&&this._copy(n.pipes,this.pipes),n.includes&&this._copy(n.includes,this.includes),n.globals&&this._copy(n.globals,this.globals),n.delimiter&&(this.delimiter=n.delimiter),void 0!==n.compact&&(this.compact=n.compact);a=f[g++];)if(c=void 0,s="",l=a.indexOf("/}}")>-1,r=a.substr(2,a.length-(l?5:4)),r=r.replace(/`(.+?)`/g,function(e,n){return Mark.up("{{"+n+"}}",t)}),o=0===r.trim().indexOf("if "),v=r.split("|"),v.shift(),r=r.replace(/^\s*if/,"").split("|").shift().trim(),i=o?"if":r.split("|")[0],m=t[r],o&&!v.length&&(v=["notempty"]),!l&&e.indexOf("{{/"+i)>-1&&(c=this._bridge(e,i),a=c[0],s=c[1],g+=a.match(h).length-1),!/^\{\{\s*else\s*\}\}$/.test(a)){if(void 0!==(u=this.globals[r]))c=this._eval(u,v,s);else if(p=this.includes[r])p instanceof Function&&(p=p()),c=this._pipe(Mark.up(p,t,n),v);else if(r.indexOf("#")>-1)n.iter.sign=r,c=this._pipe(n.iter,v);else if("."===r)c=this._pipe(t,v);else if(r.indexOf(".")>-1){for(r=r.split("."),m=Mark.globals[r[0]],m?d=1:(d=0,m=t);m&&d<r.length;)m=m[r[d++]];c=this._eval(m,v,s)}else o?c=this._pipe(m,v):m instanceof Array?c=this._eval(m,v,s):s?c=m?Mark.up(s,m):void 0:t.hasOwnProperty(r)&&(c=this._pipe(m,v));c instanceof Array&&(c=this._eval(c,v,s)),o&&(c=this._test(c,s,t,n)),e=e.replace(a,void 0===c?"???":c)}return this.compact?e.replace(/>\s+</g,"><"):e},Mark.pipes={empty:function(e){return e&&0!==(e+"").trim().length?!1:e},notempty:function(e){return e&&(e+"").trim().length?e:!1},blank:function(e,t){return e||0===e?e:t},more:function(e,t){return Mark._size(e)>t?e:!1},less:function(e,t){return Mark._size(e)<t?e:!1},ormore:function(e,t){return Mark._size(e)>=t?e:!1},orless:function(e,t){return Mark._size(e)<=t?e:!1},between:function(e,t,n){return e=Mark._size(e),e>=t&&n>=e?e:!1},equals:function(e,t){return e==t?e:!1},notequals:function(e,t){return e!=t?e:!1},like:function(e,t){return new RegExp(t,"i").test(e)?e:!1},notlike:function(e,t){return Mark.pipes.like(e,t)?!1:e},upcase:function(e){return String(e).toUpperCase()},downcase:function(e){return String(e).toLowerCase()},capcase:function(e){return e.replace(/(?:^|\s)\S/g,function(e){return e.toUpperCase()})},chop:function(e,t){return e.length>t?e.substr(0,t)+"...":e},tease:function(e,t){var n=e.split(/\s+/);return n.slice(0,t).join(" ")+(n.length>t?"...":"")},trim:function(e){return e.trim()},pack:function(e){return e.trim().replace(/\s{2,}/g," ")},round:function(e){return Math.round(+e)},clean:function(e){return String(e).replace(/<\/?[^>]+>/gi,"")},size:function(e){return e.length},length:function(e){return e.length},reverse:function(e){return[].concat(e).reverse()},join:function(e,t){return e.join(t)},limit:function(e,t,n){return e.slice(+n||0,+t+(+n||0))},split:function(e,t){return e.split(t||",")},choose:function(e,t,n){return e?t:n||""},toggle:function(e,t,n,a){return n.split(",")[t.match(/\w+/g).indexOf(e+"")]||a},sort:function(e,t){var n=function(e,n){return e[t]>n[t]?1:-1};return[].concat(e).sort(t?n:void 0)},fix:function(e,t){return(+e).toFixed(t)},mod:function(e,t){return+e%+t},divisible:function(e,t){return e&&+e%t===0?e:!1},even:function(e){return e&&0===(1&+e)?e:!1},odd:function(e){return e&&1===(1&+e)?e:!1},number:function(e){return parseFloat(e.replace(/[^\-\d\.]/g,""))},url:function(e){return encodeURI(e)},bool:function(e){return!!e},falsy:function(e){return!e},first:function(e){return 0===e.idx},last:function(e){return e.idx===e.size-1},call:function(e,t){return e[t].apply(e,[].slice.call(arguments,2))},set:function(e,t){return Mark.globals[t]=e,""},log:function(e){return console.log(e),e}},"function"!=typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")}),"undefined"!=typeof module&&module.exports?module.exports=Mark:"function"==typeof define&&define.amd&&define(function(){return Mark}),Mark.pipes.stringify=function(e){return JSON.stringify(e)},!function(e){"use strict";function t(e,t){if(this.createTextRange){var n=this.createTextRange();n.collapse(!0),n.moveStart("character",e),n.moveEnd("character",t-e),n.select()}else this.setSelectionRange&&(this.focus(),this.setSelectionRange(e,t))}function n(e){var t=this.value.length;if(e="start"==e.toLowerCase()?"Start":"End",document.selection){var n,a,r,i=document.selection.createRange();return n=i.duplicate(),n.expand("textedit"),n.setEndPoint("EndToEnd",i),a=n.text.length-i.text.length,r=a+i.text.length,"Start"==e?a:r}return"undefined"!=typeof this["selection"+e]&&(t=this["selection"+e]),t}var a={codes:{46:127,188:44,109:45,190:46,191:47,192:96,220:92,222:39,221:93,219:91,173:45,187:61,186:59,189:45,110:46},shifts:{96:"~",49:"!",50:"@",51:"#",52:"$",53:"%",54:"^",55:"&",56:"*",57:"(",48:")",45:"_",61:"+",91:"{",93:"}",92:"|",59:":",39:'"',44:"<",46:">",47:"?"}};e.fn.number=function(r,i,l,o){o="undefined"==typeof o?",":o,l="undefined"==typeof l?".":l,i="undefined"==typeof i?0:i;var s="\\u"+("0000"+l.charCodeAt(0).toString(16)).slice(-4),c=new RegExp("[^"+s+"0-9]","g"),u=new RegExp(s,"g");return r===!0?this.is("input:text")?this.on({"keydown.format":function(r){var s=e(this),c=s.data("numFormat"),u=r.keyCode?r.keyCode:r.which,p="",m=n.apply(this,["start"]),h=n.apply(this,["end"]),f="",v=!1;if(a.codes.hasOwnProperty(u)&&(u=a.codes[u]),!r.shiftKey&&u>=65&&90>=u?u+=32:!r.shiftKey&&u>=69&&105>=u?u-=48:r.shiftKey&&a.shifts.hasOwnProperty(u)&&(p=a.shifts[u]),""==p&&(p=String.fromCharCode(u)),8!=u&&45!=u&&127!=u&&p!=l&&!p.match(/[0-9]/)){var g=r.keyCode?r.keyCode:r.which;if(46==g||8==g||127==g||9==g||27==g||13==g||(65==g||82==g||80==g||83==g||70==g||72==g||66==g||74==g||84==g||90==g||61==g||173==g||48==g)&&(r.ctrlKey||r.metaKey)===!0||(86==g||67==g||88==g)&&(r.ctrlKey||r.metaKey)===!0||g>=35&&39>=g||g>=112&&123>=g)return;return r.preventDefault(),!1}if(0==m&&h==this.value.length?8==u?(m=h=1,this.value="",c.init=i>0?-1:0,c.c=i>0?-(i+1):0,t.apply(this,[0,0])):p==l?(m=h=1,this.value="0"+l+new Array(i+1).join("0"),c.init=i>0?1:0,c.c=i>0?-(i+1):0):45==u?(m=h=2,this.value="-0"+l+new Array(i+1).join("0"),c.init=i>0?1:0,c.c=i>0?-(i+1):0,t.apply(this,[2,2])):(c.init=i>0?-1:0,c.c=i>0?-i:0):c.c=h-this.value.length,c.isPartialSelection=m!=h,i>0&&p==l&&m==this.value.length-i-1)c.c++,c.init=Math.max(0,c.init),r.preventDefault(),v=this.value.length+c.c;else if(45!=u||0==m&&0!=this.value.indexOf("-"))if(p==l)c.init=Math.max(0,c.init),r.preventDefault();else if(i>0&&127==u&&m==this.value.length-i-1)r.preventDefault();else if(i>0&&8==u&&m==this.value.length-i)r.preventDefault(),c.c--,v=this.value.length+c.c;else if(i>0&&127==u&&m>this.value.length-i-1){if(""===this.value)return;"0"!=this.value.slice(m,m+1)&&(f=this.value.slice(0,m)+"0"+this.value.slice(m+1),s.val(f)),r.preventDefault(),v=this.value.length+c.c}else if(i>0&&8==u&&m>this.value.length-i){if(""===this.value)return;"0"!=this.value.slice(m-1,m)&&(f=this.value.slice(0,m-1)+"0"+this.value.slice(m),s.val(f)),r.preventDefault(),c.c--,v=this.value.length+c.c}else 127==u&&this.value.slice(m,m+1)==o?r.preventDefault():8==u&&this.value.slice(m-1,m)==o?(r.preventDefault(),c.c--,v=this.value.length+c.c):i>0&&m==h&&this.value.length>i+1&&m>this.value.length-i-1&&isFinite(+p)&&!r.metaKey&&!r.ctrlKey&&!r.altKey&&1===p.length&&(f=h===this.value.length?this.value.slice(0,m-1):this.value.slice(0,m)+this.value.slice(m+1),this.value=f,v=m);else r.preventDefault();v!==!1&&t.apply(this,[v,v]),s.data("numFormat",c)},"keyup.format":function(a){var r,l=e(this),o=l.data("numFormat"),s=a.keyCode?a.keyCode:a.which,c=n.apply(this,["start"]),u=n.apply(this,["end"]);0!==c||0!==u||189!==s&&109!==s||(l.val("-"+l.val()),c=1,o.c=1-this.value.length,o.init=1,l.data("numFormat",o),r=this.value.length+o.c,t.apply(this,[r,r])),""===this.value||(48>s||s>57)&&(96>s||s>105)&&8!==s&&46!==s&&110!==s||(l.val(l.val()),i>0&&(o.init<1?(c=this.value.length-i-(o.init<0?1:0),o.c=c-this.value.length,o.init=1,l.data("numFormat",o)):c>this.value.length-i&&8!=s&&(o.c++,l.data("numFormat",o))),46!=s||o.isPartialSelection||(o.c++,l.data("numFormat",o)),r=this.value.length+o.c,t.apply(this,[r,r]))},"paste.format":function(t){var n=e(this),a=t.originalEvent,r=null;return window.clipboardData&&window.clipboardData.getData?r=window.clipboardData.getData("Text"):a.clipboardData&&a.clipboardData.getData&&(r=a.clipboardData.getData("text/plain")),n.val(r),t.preventDefault(),!1}}).each(function(){var t=e(this).data("numFormat",{c:-(i+1),decimals:i,thousands_sep:o,dec_point:l,regex_dec_num:c,regex_dec:u,init:!!this.value.indexOf(".")});""!==this.value&&t.val(t.val())}):this.each(function(){var t=e(this),n=+t.text().replace(c,"").replace(u,".");t.number(isFinite(n)?+n:0,i,l,o)}):this.text(e.number.apply(window,arguments))};var r=null,i=null;e.isPlainObject(e.valHooks.text)?(e.isFunction(e.valHooks.text.get)&&(r=e.valHooks.text.get),e.isFunction(e.valHooks.text.set)&&(i=e.valHooks.text.set)):e.valHooks.text={},e.valHooks.text.get=function(t){var n,a=e(t),i=a.data("numFormat");return i?""===t.value?"":(n=+t.value.replace(i.regex_dec_num,"").replace(i.regex_dec,"."),(0===t.value.indexOf("-")?"-":"")+(isFinite(n)?n:0)):e.isFunction(r)?r(t):void 0},e.valHooks.text.set=function(t,n){var a=e(t),r=a.data("numFormat");if(r){var l=e.number(n,r.decimals,r.dec_point,r.thousands_sep);return e.isFunction(i)?i(t,l):t.value=l}return e.isFunction(i)?i(t,n):void 0},e.number=function(e,t,n,a){a="undefined"==typeof a?"1000"!==new Number(1e3).toLocaleString()?new Number(1e3).toLocaleString().charAt(1):"":a,n="undefined"==typeof n?new Number(.1).toLocaleString().charAt(1):n,t=isFinite(+t)?Math.abs(t):0;var r="\\u"+("0000"+n.charCodeAt(0).toString(16)).slice(-4),i="\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4);e=(e+"").replace(".",n).replace(new RegExp(i,"g"),"").replace(new RegExp(r,"g"),".").replace(new RegExp("[^0-9+-Ee.]","g"),"");var l=isFinite(+e)?+e:0,o="",s=function(e,t){return""+ +(Math.round((""+e).indexOf("e")>0?e:e+"e+"+t)+"e-"+t)};return o=(t?s(l,t):""+Math.round(l)).split("."),o[0].length>3&&(o[0]=o[0].replace(/\B(?=(?:\d{3})+(?!\d))/g,a)),(o[1]||"").length<t&&(o[1]=o[1]||"",o[1]+=new Array(t-o[1].length+1).join("0")),o.join(n)}}(jQuery),!function(e){"use strict";e.browser||(e.browser={},e.browser.mozilla=/mozilla/.test(navigator.userAgent.toLowerCase())&&!/webkit/.test(navigator.userAgent.toLowerCase()),e.browser.webkit=/webkit/.test(navigator.userAgent.toLowerCase()),e.browser.opera=/opera/.test(navigator.userAgent.toLowerCase()),e.browser.msie=/msie/.test(navigator.userAgent.toLowerCase()));var t={destroy:function(){return e(this).unbind(".maskMoney"),e.browser.msie&&(this.onpaste=null),this},mask:function(t){return this.each(function(){var n,a=e(this);return"number"==typeof t&&(a.trigger("mask"),n=e(a.val().split(/\D/)).last()[0].length,t=t.toFixed(n),a.val(t)),a.trigger("mask")})},unmasked:function(){return this.map(function(){var t,n=e(this).val()||"0",a=-1!==n.indexOf("-");return e(n.split(/\D/).reverse()).each(function(e,n){return n?(t=n,!1):void 0}),n=n.replace(/\D/g,""),n=n.replace(new RegExp(t+"$"),"."+t),a&&(n="-"+n),parseFloat(n)})},init:function(t){return t=e.extend({prefix:"",suffix:"",affixesStay:!0,thousands:",",decimal:".",precision:2,allowZero:!1,allowNegative:!1},t),this.each(function(){function n(){var e,t,n,a,r,i=y.get(0),l=0,o=0;return"number"==typeof i.selectionStart&&"number"==typeof i.selectionEnd?(l=i.selectionStart,o=i.selectionEnd):(t=document.selection.createRange(),t&&t.parentElement()===i&&(a=i.value.length,e=i.value.replace(/\r\n/g,"\n"),n=i.createTextRange(),n.moveToBookmark(t.getBookmark()),r=i.createTextRange(),r.collapse(!1),n.compareEndPoints("StartToEnd",r)>-1?l=o=a:(l=-n.moveStart("character",-a),l+=e.slice(0,l).split("\n").length-1,n.compareEndPoints("EndToEnd",r)>-1?o=a:(o=-n.moveEnd("character",-a),o+=e.slice(0,o).split("\n").length-1)))),{start:l,end:o}}function a(){var e=!(y.val().length>=y.attr("maxlength")&&y.attr("maxlength")>=0),t=n(),a=t.start,r=t.end,i=!(t.start===t.end||!y.val().substring(a,r).match(/\d/)),l="0"===y.val().substring(0,1);return e||i||l}function r(e){y.each(function(t,n){if(n.setSelectionRange)n.focus(),n.setSelectionRange(e,e);else if(n.createTextRange){var a=n.createTextRange();a.collapse(!0),a.moveEnd("character",e),a.moveStart("character",e),a.select()}})}function i(e){var n="";return e.indexOf("-")>-1&&(e=e.replace("-",""),n="-"),n+t.prefix+e+t.suffix}function l(e){var n,a,r,l=e.indexOf("-")>-1&&t.allowNegative?"-":"",o=e.replace(/[^0-9]/g,""),s=o.slice(0,o.length-t.precision);return s=s.replace(/^0*/g,""),s=s.replace(/\B(?=(\d{3})+(?!\d))/g,t.thousands),""===s&&(s="0"),n=l+s,t.precision>0&&(a=o.slice(o.length-t.precision),r=new Array(t.precision+1-a.length).join(0),n+=t.decimal+r+a),i(n)}function o(e){var t,n=y.val().length;y.val(l(y.val())),t=y.val().length,e-=n-t,r(e)}function s(){var e=y.val();y.val(l(e))}function c(){var e=y.val();return t.allowNegative?""!==e&&"-"===e.charAt(0)?e.replace("-",""):"-"+e:e}function u(e){e.preventDefault?e.preventDefault():e.returnValue=!1}function p(t){t=t||window.event;var r,i,l,s,p,m=t.which||t.charCode||t.keyCode;return void 0===m?!1:48>m||m>57?45===m?(y.val(c()),!1):43===m?(y.val(y.val().replace("-","")),!1):13===m||9===m?!0:!e.browser.mozilla||37!==m&&39!==m||0!==t.charCode?(u(t),!0):!0:a()?(u(t),r=String.fromCharCode(m),i=n(),l=i.start,s=i.end,p=y.val(),y.val(p.substring(0,l)+r+p.substring(s,p.length)),o(l+1),!1):!1}function m(e){e=e||window.event;var a,r,i,l,s,c=e.which||e.charCode||e.keyCode;return void 0===c?!1:(a=n(),r=a.start,i=a.end,8===c||46===c||63272===c?(u(e),l=y.val(),r===i&&(8===c?""===t.suffix?r-=1:(s=l.split("").reverse().join("").search(/\d/),r=l.length-s-1,i=r+1):i+=1),y.val(l.substring(0,r)+l.substring(i,l.length)),o(r),!1):!0)}function h(){x=y.val(),s();var e,t=y.get(0);t.createTextRange&&(e=t.createTextRange(),e.collapse(!1),e.select())}function f(){setTimeout(function(){s()},0)}function v(){var e=parseFloat("0")/Math.pow(10,t.precision);return e.toFixed(t.precision).replace(new RegExp("\\.","g"),t.decimal)}function g(n){if(e.browser.msie&&p(n),""===y.val()||y.val()===i(v()))t.allowZero?t.affixesStay?y.val(i(v())):y.val(v()):y.val("");else if(!t.affixesStay){var a=y.val().replace(t.prefix,"").replace(t.suffix,"");y.val(a)}y.val()!==x&&y.change()}function d(){var e,t=y.get(0);t.setSelectionRange?(e=y.val().length,t.setSelectionRange(e,e)):y.val(y.val())}var x,y=e(this);t=e.extend(t,y.data()),y.unbind(".maskMoney"),y.bind("keypress.maskMoney",p),y.bind("keydown.maskMoney",m),y.bind("blur.maskMoney",g),y.bind("focus.maskMoney",h),y.bind("click.maskMoney",d),y.bind("cut.maskMoney",f),y.bind("paste.maskMoney",f),y.bind("mask.maskMoney",s)})}};e.fn.maskMoney=function(n){return t[n]?t[n].apply(this,Array.prototype.slice.call(arguments,1)):"object"!=typeof n&&n?void e.error("Method "+n+" does not exist on jQuery.maskMoney"):t.init.apply(this,arguments)}}(window.jQuery||window.Zepto),function(e){"use strict";Mark.pipes.number_format=function(t){return e.number(t)},Mark.pipes.in_usd=function(t){return e.number(t)};var t={mtg:0,vnd:0,usd:0,salary:0,mxh:0,myt:0,mtn:0,mxh_:0,myt_:0,mtn_:0,mpit:0,mbt:0,mtg:21160,currency:0,typeOfConverter:0,pxh:18,pxh_:8,pyt:3,pyt_:1.5,ptn:1,ptn_:1,ipt:0,mptS:0,mpt:36e5,mgtbt:9e6,mct:0,mgross:0,mnet:0,msum:0,mMinSalary:115e4,mMaxBH:21e6,mMinBH:21e6,PersonalIncomeTaxLevels:[{title:"Đến 5 triệu ",percentage:5,value:0,from:0,to:5e6,maximum:25e4},{title:"Từ 5 - 10 triệu ",percentage:10,value:0,from:5e6,to:1e7,maximum:5e5},{title:"Từ 10 - 18 triệu ",percentage:15,value:0,from:1e7,to:18e6,maximum:12e5},{title:"Từ 18 - 32 triệu ",percentage:20,value:0,from:18e6,to:32e6,maximum:28e5},{title:"Từ 32 - 52 triệu ",percentage:25,value:0,from:32e6,to:52e6,maximum:5e6},{title:"Từ 52 - 80 triệu ",percentage:30,value:0,from:52e6,to:8e7,maximum:84e6},{title:"Trên 80 triệu ",percentage:35,value:0,from:8e7,to:-1}],init:function(){var t=this;e("#vnd, #mtg, #mMinSalary, #mgtbt, #mpt, #ipt").maskMoney({allowZero:!0,precision:0}),e("#usd, #pxh_, #pyt_, #ptn_, #pxh, #pyt, #ptn").maskMoney({allowZero:!0,precision:1}),e("#usd, #pxh_, #pyt_, #ptn_, #pxh, #pyt, #ptn").on("click",function(){e(this).select()}),e("#vnd, #mtg, #mMinSalary, #mgtbt, #mpt, #ipt").on("click",function(){e(this).select()}),t.updateValue(),e("#btn1").on("click",function(){t.updateValue(),t.updateSalary(0),t.render()}),e("#btn2").on("click",function(){t.updateValue(),t.updateSalary(1),t.render()})},updateValue:function(){var t=this;t.vnd=parseInt(e("#vnd").val().replace(/,/g,"")),t.usd=parseInt(e("#usd").val().replace(/,/g,"")),t.mtg=parseFloat(e("#mtg").val().replace(/,/g,"")),t.mgtbt=parseInt(e("#mgtbt").val().replace(/,/g,"")),t.mpt=parseInt(e("#mpt").val().replace(/,/g,"")),t.ipt=parseInt(e("#ipt").val().replace(/,/g,"")),t.mMinSalary=parseInt(e("#mMinSalary").val().replace(/,/g,"")),t.pxh_=parseFloat(e("#pxh_").val().replace(/,/g,"")),t.pyt_=parseFloat(e("#pyt_").val().replace(/,/g,"")),t.ptn_=parseFloat(e("#ptn_").val().replace(/,/g,"")),t.pxh=parseFloat(e("#pxh").val().replace(/,/g,"")),t.pyt=parseFloat(e("#pyt").val().replace(/,/g,"")),t.ptn=parseFloat(e("#ptn").val().replace(/,/g,""))},updateSalary:function(e){var t=this;t.mMaxBH=20*t.mMinSalary,t.mptS=t.ipt*t.mpt,t.pxh=parseFloat(t.pxh,10),t.pyt=parseFloat(t.pyt,10),t.ptn=parseFloat(t.ptn,10),t.pxh_=parseFloat(t.pxh_,10),t.pyt_=parseFloat(t.pyt_,10),t.ptn_=parseFloat(t.ptn_,10),t.salary=t.vnd+t.usd*t.mtg;var n=0,a=0;1==e?(t.salary>t.mptS+t.mgtbt?(t.mct=Math.floor(t.convertToCT(t.salary)),t.mbt=t.mct+t.mgtbt+t.mptS):(t.mct=0,t.mbt=t.salary),a=t.mbt<=t.mMaxBH*(100-t.pxh_-t.pyt_-t.ptn_)/100?t.mbt:t.mMaxBH,t.mgross=Math.floor(t.mbt+a*(t.pxh_+t.pyt_+t.ptn_)/100),t.mnet=t.salary):(t.mgross=t.salary,n=t.mgross<=t.mMaxBH?t.mgross:t.mMaxBH,t.mbt=Math.floor(t.mgross-n*(t.pxh_+t.pyt_+t.ptn_)/100),t.mct=t.mbt-t.mgtbt-t.mptS,t.mct=t.mct<0?0:t.mct),n=t.mgross<=t.mMaxBH?t.mgross:t.mMaxBH,t.mxh=Math.floor(n*t.pxh/100),t.myt=Math.floor(n*t.pyt/100),t.mtn=Math.floor(n*t.ptn/100),t.mxh_=Math.floor(n*t.pxh_/100),t.myt_=Math.floor(n*t.pyt_/100),t.mtn_=Math.floor(n*t.ptn_/100),t.msum=parseInt(t.mgross,10)+parseInt(t.mxh,10)+parseInt(t.myt,10)+parseInt(t.mtn,10),t.calculatePIT(t.mct),0==e&&(t.mnet=t.mbt-t.mpit)},calculatePIT:function(){var e=this;e.mpit=0;for(var t=0;t<e.PersonalIncomeTaxLevels.length-1;t++)e.mct>=e.PersonalIncomeTaxLevels[t].to?e.PersonalIncomeTaxLevels[t].value=e.PersonalIncomeTaxLevels[t].maximum:e.PersonalIncomeTaxLevels[t].from<=e.mct&&e.mct<=e.PersonalIncomeTaxLevels[t].to?e.PersonalIncomeTaxLevels[t].value=Math.floor((e.mct-e.PersonalIncomeTaxLevels[t].from)*e.PersonalIncomeTaxLevels[t].percentage/100):e.PersonalIncomeTaxLevels[t].value=0,e.mpit=e.mpit+e.PersonalIncomeTaxLevels[t].value;e.mct>e.PersonalIncomeTaxLevels[t].from?e.PersonalIncomeTaxLevels[t].value=Math.floor((e.mct-e.PersonalIncomeTaxLevels[t].from)*e.PersonalIncomeTaxLevels[t].percentage/100):e.PersonalIncomeTaxLevels[t].value=0,e.mpit=e.mpit+e.PersonalIncomeTaxLevels[t].value},convertToCT:function(e){var t=this;e=parseInt(e,10);for(var n=[0],a=0;a<t.PersonalIncomeTaxLevels.length-1&&!(n[a]>e)&&(n[a+1]=n[a]+(t.PersonalIncomeTaxLevels[a].to-t.PersonalIncomeTaxLevels[a].from)*t.PersonalIncomeTaxLevels[a].percentage/100,!(t.PersonalIncomeTaxLevels[a].to-n[a+1]+t.mptS+t.mgtbt>=e));a++);return(e+n[a]-t.mptS-t.mgtbt-t.PersonalIncomeTaxLevels[a].from*t.PersonalIncomeTaxLevels[a].percentage/100)/(1-t.PersonalIncomeTaxLevels[a].percentage/100)},render:function(){var t=this;e(Mark.up(e("#tpl").html(),{_:t})).appendTo(e("#result").html(""))}};e(function(){t.init(),t.updateSalary(0),t.render()})}(jQuery);
+</script>
 </body>
 </html>
