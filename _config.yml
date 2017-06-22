@@ -10,7 +10,7 @@ baseurl: "" # apply repo name if use it under gh-pages branch
 
 google_analytics: UA-68635944-1
 repo: http://github.com/ichuot
-disqus_shortname: "ichuot"
+disqus_shortname: "ichuot-github-io"
 twitter_username: "ichuot"
 comments: true
 
