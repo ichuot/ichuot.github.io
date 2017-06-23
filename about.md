@@ -14,3 +14,10 @@ permalink: /about/
 + Về lập trình di động thì chỉ biết xài Apache Cordova
 + Biết về mạng máy tính. Mạng Windows hay Linux cũng được... cái gì khó sẽ biết google
 + Biết vậy chắc đủ rồi... biết nhiều quá đau bụng (ngồi nhiều).
+
+### Học vấn
++ Tốt nghiệp loại khá ngành `Google đại pháp` của Google University
++ Còn lại chỉ là bằng nghề, chứng chỉ... thôi không nêu tên! sỉ nhục trường :(
+
+### Liên hệ
++ Email: {{ site.author.email }}
