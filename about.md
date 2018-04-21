@@ -11,8 +11,8 @@ permalink: /about/
 + NodeJS, GoLang cũng tàm tạm
 + DB thì hay dùng MySQL, MSSQL cũng ok!
 + Xưa có nghiên cứu Java, .NET nhưng ít có cơ hội xài
-+ Về lập trình di động thì chỉ biết xài Apache Cordova
-+ Biết về mạng máy tính. Mạng Windows hay Linux cũng được... cái gì khó sẽ biết google
++ Về lập trình di động thì chỉ biết xài Apache Cordova + Framework7. Có kinh (nghiệm) vài dự án về cái này
++ Biết về mạng máy tính. Mạng Windows hay Linux cũng được... cái gì khó sẽ hỏi google
 + Biết vậy chắc đủ rồi... biết nhiều quá đau bụng (ngồi nhiều).
 
 ### Học vấn
