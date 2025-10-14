@@ -10,7 +10,7 @@ keywords: "dummy content, lorem ipsum"
 - OS khác tui không biết đâu nhé
 - Người chơi thuộc hệ LAMP
 
-## Chỉ lại múi giờ hệ thống
+## Chỉnh lại múi giờ hệ thống
 
 Chỉnh sang múi Việt Nam Ho Chi Minh City +7. Là người VN thì phải biết VN +7 nhé.
 ```
