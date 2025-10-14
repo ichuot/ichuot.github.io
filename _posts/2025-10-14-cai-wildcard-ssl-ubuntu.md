@@ -6,8 +6,6 @@ comments: true
 keywords: "dummy content, lorem ipsum"
 ---
 
-# Cài widldcard SSL Letsencrypt cho VPS/Server
-
 - VPS chạy ubuntu
 - Cài thông qua Certbot
 - DNS dùng cloudflare
