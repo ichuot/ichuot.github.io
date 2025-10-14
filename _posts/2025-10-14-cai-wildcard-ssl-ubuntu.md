@@ -67,7 +67,7 @@ sudo a2enmod ssl
     Require all granted
   </Directory>
   SSLEngine on
-  SSLCertificateFile /etc/letsencrypt/live/{{TÊN MIỀN}}/fullchain.pem
-  SSLCertificateKeyFile /etc/letsencrypt/live/{{TÊN MIỀN}}/privkey.pem
+  SSLCertificateFile /etc/letsencrypt/live/-TÊN MIỀN-/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/-TÊN MIỀN-/privkey.pem
 </VirtualHost>
 ```
