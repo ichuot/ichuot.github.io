@@ -5,6 +5,7 @@ permalink: /about/
 ---
 
 ### Trình code
++ Biết chút về Cordova để viết app cho Android
 + Biết chút đỉnh Hờ Tờ Mờ Lờ (HTML), CSS để có thể làm làm web
 + Cũng biết xài Bootstrap, jQuery
 + PHP đủ để viết 1 framework nhỏ nó như thế nào
