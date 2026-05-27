@@ -32,6 +32,7 @@ sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '{{MẬT KHẨU}}';
 exit
 ```
+Thêm mật khẩu vào nhé
 
 ## Giúp php làm việc được apache và mysql, cài phpmyadmin
 
