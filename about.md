@@ -23,3 +23,6 @@ permalink: /about/
 ### Liên hệ
 + Email: {{ site.author.email }}
 + FB: {{ site.author.facebook }}
+
+### Test thử
++ Haha
